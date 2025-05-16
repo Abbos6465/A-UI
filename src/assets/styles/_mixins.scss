@@ -1,0 +1,25 @@
+@mixin font-face(
+  $family,
+  $path,
+  $weight: 400,
+  $format
+) {
+  @font-face {
+    font-family: $family;
+    src: url('#{$path}') format($format);
+    font-weight: $weight;
+  }
+}
+
+@mixin flex($alignItems, $justifyContent) {
+  @if ($alignItems) {
+    align-items: $alignItems;
+  }
+  @if ($justifyContent) {
+    justify-content: $justifyContent;
+  }
+}
+
+@mixin rounded($size) {
+  border-radius: $size;
+}

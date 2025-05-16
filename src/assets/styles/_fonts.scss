@@ -1,0 +1,29 @@
+@use "@styles/mixins";
+
+$font-families: (
+        "Open Sans": "@/assets/fonts/open_sans",
+        "Inter": "@/assets/fonts/inter",
+        "Montserrat": "@/assets/fonts/montserrat",
+        "Jost":"@/assets/fonts/jost",
+);
+
+$fonts: (
+        bold: 700,
+        semiBold: 600,
+        medium: 500,
+        regular: 400,
+        light: 300,
+);
+
+$font-format: "truetype";
+
+@each $family, $path in $font-families {
+  @each $style, $weight in $fonts {
+    @include mixins.font-face(
+                    $family,
+                    "#{$path}/#{$style}.ttf",
+                    $weight,
+                    $font-format
+    );
+  }
+}
